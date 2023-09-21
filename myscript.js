@@ -37,23 +37,48 @@ function operate () {
     }
 }
 
+
+
 let display = document.querySelector('#display')
 
-let butt1 = document.querySelector('#one');
-let one = butt1.innerText;
+let buttonsArray = Array.from(document.querySelectorAll('.numbers'));
+buttonsArray.forEach(function (butt) {
+    butt.addEventListener("click", function() {    
+        display.innerText += butt.innerText
+        if ((display.innerText).includes('*') || (display.innerText).includes('+') || (display.innerText).includes('-') || (display.innerText).includes('/'))
+        {
+            numb2 = parseInt(display.innerText)
+        }
+        numb1 = display.innerText;
+        console.log(numb1);
+        return numb1;
+    });
+}) 
 
+let operationsArray = Array.from(document.querySelectorAll('.operation'));
+operationsArray.forEach(function (butt) {
+    butt.addEventListener("click", function() {    
+        display.innerText = butt.innerText
+        operator = display.innerText;
+        console.log(operator);
+        return operator;
+    });
+})
 
-let butt2 = document.querySelector('#two');
-let two = butt2.innerText;
 
 let buttM = document.querySelector('#multiply');
 
+buttM.addEventListener("click", function() {
+    operator = buttM.innerText;
+    console.log(operator);
+    return operator;
+});
 
-
-butt1.addEventListener("click", function() {
-    numb1 = butt1.innerText;
+/*
+butt1.addEventListener("click", function() {    
     console.log(numb1);
     display.innerText += one;
+    numb1 = display.innerText;
     return numb1;
 });
 
@@ -63,12 +88,8 @@ butt2.addEventListener("click", function() {
     display.innerText += two;
     return numb2;
 });
+*/
 
-buttM.addEventListener("click", function() {
-    operator = buttM.innerText;
-    console.log(operator);
-    return operator;
-});
 
 
 
