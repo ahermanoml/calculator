@@ -1,5 +1,5 @@
 function add(a, b) {
-    return a + b;
+    return Number(a) + Number(b);
 }
 
 function subtract(a, b) {
@@ -43,36 +43,30 @@ let display = document.querySelector('#display')
 
 let buttonsArray = Array.from(document.querySelectorAll('.numbers'));
 buttonsArray.forEach(function (butt) {
-    butt.addEventListener("click", function() {    
+    butt.addEventListener("click", function() {
+        display.innerText = display.innerText.replace(/[*+/-]/g, '');    
         display.innerText += butt.innerText
-        if ((display.innerText).includes('*') || (display.innerText).includes('+') || (display.innerText).includes('-') || (display.innerText).includes('/'))
-        {
-            numb2 = parseInt(display.innerText)
-        }
-        numb1 = display.innerText;
-        console.log(numb1);
-        return numb1;
     });
 }) 
 
 let operationsArray = Array.from(document.querySelectorAll('.operation'));
 operationsArray.forEach(function (butt) {
-    butt.addEventListener("click", function() {    
+    butt.addEventListener("click", function() { 
+        numb1 = display.innerText;
+        console.log(numb1);   
         display.innerText = butt.innerText
         operator = display.innerText;
         console.log(operator);
-        return operator;
     });
 })
 
+let equalSign = document.querySelector('#equalSign');
+equalSign.addEventListener("click", function() {
+    numb2 = display.innerText;
+    let result = operate();
+    display.innerText = result;
+})
 
-let buttM = document.querySelector('#multiply');
-
-buttM.addEventListener("click", function() {
-    operator = buttM.innerText;
-    console.log(operator);
-    return operator;
-});
 
 /*
 butt1.addEventListener("click", function() {    
