@@ -10,6 +10,7 @@ body {
     width: 200px;
     height: 300px;
     align-content: flex-start;
+    border-radius: 5px black;
 }
 
 .numbers {
@@ -17,16 +18,23 @@ body {
     height: 60px;
 }
 
-#clear {
+#clear, #equalSign {
     width: 100px;
+    height: 60px;
 }
 
-#equalSign {
+#zero, #dot {
     width: 100px;
+    height: 60px;
 }
 
-#display {
+.operation {
+    width: 50px;
+    height: 60px;
+}
+
+#operationsDisplay, #resultsDisplay {
     width: 200px;;
-    height: 100px;
+    height: 25px;
     background-color: white;
 }

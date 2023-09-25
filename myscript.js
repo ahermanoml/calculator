@@ -38,48 +38,60 @@ function operate () {
 }
 
 
-
-let display = document.querySelector('#display')
+let operationsDisplay = document.querySelector('#operationsDisplay');
+let resultDisplay = document.querySelector('#resultDisplay');
 
 let buttonsArray = Array.from(document.querySelectorAll('.numbers'));
 buttonsArray.forEach(function (butt) {
     butt.addEventListener("click", function() {
-        display.innerText = display.innerText.replace(/[*+/-]/g, '');    
-        display.innerText += butt.innerText
+        operationsDisplay.innerText = operationsDisplay.innerText.replace(/[*+/-]/g, '');    
+        operationsDisplay.innerText += butt.innerText
     });
 }) 
 
 let operationsArray = Array.from(document.querySelectorAll('.operation'));
 operationsArray.forEach(function (butt) {
-    butt.addEventListener("click", function() { 
-        numb1 = display.innerText;
-        console.log(numb1);   
-        display.innerText = butt.innerText
-        operator = display.innerText;
-        console.log(operator);
+    butt.addEventListener("click", function() {
+        if (numb1 === undefined) {
+        numb1 = operationsDisplay.innerText;
+        operationsDisplay.innerText = butt.innerText;
+        operator = operationsDisplay.innerText;
+        } else {
+            numb2 = operationsDisplay.innerText;
+            let result = operate();
+            numb1 = result;
+            operationsDisplay.innerText = butt.innerText;
+        } 
     });
 })
 
 let equalSign = document.querySelector('#equalSign');
 equalSign.addEventListener("click", function() {
-    numb2 = display.innerText;
+    numb2 = operationsDisplay.innerText;
     let result = operate();
-    display.innerText = result;
+    operationsDisplay.innerText = result;
 })
 
+let clear = document.querySelector('#clear');
+clear.addEventListener("click", function (){
+    operationsDisplay.innerText = "";
+    numb1 = undefined;
+    numb2 = undefined;
+    operator = undefined;
+})
 
 /*
 butt1.addEventListener("click", function() {    
     console.log(numb1);
-    display.innerText += one;
-    numb1 = display.innerText;
+    operationsDisplay.innerText += one;
+    numb1 = operationsDisplay.innerText;
     return numb1;
 });
 
 butt2.addEventListener("click", function() {
     numb2 = butt2.innerText;
     console.log(numb2);
-    display.innerText += two;
+    operationsDisplay.innerText += two;
     return numb2;
 });
 */
