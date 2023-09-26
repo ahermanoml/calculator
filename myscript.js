@@ -41,6 +41,7 @@ function operate () {
 let operationsDisplay = document.querySelector('#operationsDisplay');
 let resultDisplay = document.querySelector('#resultDisplay');
 
+
 let buttonsArray = Array.from(document.querySelectorAll('.numbers'));
 buttonsArray.forEach(function (butt) {
     butt.addEventListener("click", function() {
@@ -56,11 +57,15 @@ operationsArray.forEach(function (butt) {
         numb1 = operationsDisplay.innerText;
         operationsDisplay.innerText = butt.innerText;
         operator = operationsDisplay.innerText;
+        console.log(operator);
         } else {
             numb2 = operationsDisplay.innerText;
             let result = operate();
             numb1 = result;
             operationsDisplay.innerText = butt.innerText;
+            resultDisplay.innerText = result;
+            operator = operationsDisplay.innerText;
+            console.log(operator);
         } 
     });
 })
@@ -69,12 +74,13 @@ let equalSign = document.querySelector('#equalSign');
 equalSign.addEventListener("click", function() {
     numb2 = operationsDisplay.innerText;
     let result = operate();
-    operationsDisplay.innerText = result;
+    resultDisplay.innerText = result;
 })
 
 let clear = document.querySelector('#clear');
 clear.addEventListener("click", function (){
     operationsDisplay.innerText = "";
+    resultDisplay.innerText = "";
     numb1 = undefined;
     numb2 = undefined;
     operator = undefined;

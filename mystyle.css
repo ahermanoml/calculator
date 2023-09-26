@@ -33,7 +33,7 @@ body {
     height: 60px;
 }
 
-#operationsDisplay, #resultsDisplay {
+#operationsDisplay, #resultDisplay {
     width: 200px;;
     height: 25px;
     background-color: white;
