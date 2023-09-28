@@ -1,3 +1,5 @@
+// ADD NUMBERS INPUT
+
 function add(a, b) {
     return Number(a) + Number(b);
 }
@@ -11,7 +13,12 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    return a / b;
+    if (b == 0) {
+        alert ("Don't go this way buddy");
+    } else {
+        return a / b;
+    }
+
 }
 
 let numb1;

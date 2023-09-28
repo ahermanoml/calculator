@@ -8,10 +8,12 @@ body {
     display: flex;
     flex-wrap: wrap;
     width: 200px;
-    height: 400px;
+    height: 420px;
     align-content: flex-start;
     border-radius: 5px black;
-
+    margin-top: 50px;
+    padding: 10px;
+    background-color: blue;
 }
 
 .numbers {
